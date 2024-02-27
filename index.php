@@ -1,16 +1,13 @@
 <?php
 
 require "function.php";
+require "Database.php";
+$config = require "config.php";
 
-
-
-$connection_string = "mysql:host=localhost;dbname=blog_kocins;user=root;password=;charset=utf8mb4";
-$pdo = new PDO($connection_string);
-
-$query = $pdo->prepare("SELECT * FROM posts");
-$query->execute();
-$posts = $query->fetchAll(PDO::FETCH_ASSOC);
-
+$db = new Database($config);
+$posts = $db
+    ->execute("SELECT * FROM posts")
+    ->fetchAll();
 
 echo "<ul>";
 foreach($posts as $post) {
