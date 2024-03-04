@@ -15,5 +15,5 @@ class Database {
     $query->execute();
 
     return $query;
-    }  
+    } 
 }
