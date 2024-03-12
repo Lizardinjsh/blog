@@ -20,4 +20,5 @@ $posts = $db
     ->execute($query, $params)
     ->fetchAll();
 
- require "index.view.php";   
+$justtitle = "Posts";
+ require "views/index.view.php";   
