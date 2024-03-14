@@ -1,24 +1,21 @@
 <?php
 
 require "function.php";
-require "Database.php";
 
+$url_array = parse_url($_SERVER["REQUEST_URI"]);
+$url = $url_array["path"];
 
-$config = require "config.php";
+$url = $_SERVER["REQUEST_URI"];
+//dd($_SERVER["REQUEST_URI"]);
+//dd(parse_url($_SERVER["REQUEST_URI"]));
 
-//$id = $_GET["id"];
-
-$query = "SELECT * FROM posts";
-$params = [];
-if(isset($_GET["id"]) && $_GET["id"] != ""){
-    $id = $_GET["id"];
-    $query .= " WHERE id=:id";
-    $params = [":id" => $id];
-};
-$db = new Database($config);
-$posts = $db
-    ->execute($query, $params)
-    ->fetchAll();
-
-$justtitle = "Posts";
- require "views/index.view.php";   
+if ($url == "/") {
+    require "controllers/index.php";
+} elseif ($url == "/about") {
+    require "controllers/about.php";
+} elseif ($url == "/story") {
+    require "controllers/story.php";
+} else {
+    http_response_code(404);
+    require "controllers/404.php";
+}
