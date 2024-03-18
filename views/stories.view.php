@@ -17,7 +17,7 @@
  <p>Thanks to talent and perseverance of the programmers, <?= $title ?> became the world's leading blogging platform in a very short time. The number of users grew rapidly as people from all over the world appreciated the opportunities <?= $title ?> offered and the intimate connection the platform created between writers and readers.</p>
 
 <?php require "components/footer.php";
- require "story.php"
+ require "story.php";
 ?>
 
 

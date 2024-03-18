@@ -1,21 +1,29 @@
 <?php
 
-require "function.php";
-
-$url_array = parse_url($_SERVER["REQUEST_URI"]);
-$url = $url_array["path"];
-
-$url = $_SERVER["REQUEST_URI"];
+//require "function.php";
+require "router.php";
+require "routes.php";
 //dd($_SERVER["REQUEST_URI"]);
 //dd(parse_url($_SERVER["REQUEST_URI"]));
 
-if ($url == "/") {
-    require "controllers/index.php";
-} elseif ($url == "/about") {
-    require "controllers/about.php";
-} elseif ($url == "/story") {
-    require "controllers/story.php";
-} else {
-    http_response_code(404);
-    require "controllers/404.php";
-}
+// echo"no";
+
+// $data = [
+//     "name" => "Railijs",
+//     "age" => 6.5,
+//     "height" => "5'5"
+// ];
+
+// $data2 = [
+//     "name" => "Didzis",
+//     "height" => "6'9"
+// ];
+
+// echo $data["age"];
+
+// if(array_key_exists("age", $data2))
+// {
+//     echo $data2["age"];
+// }
+
+// echo isset($data2["age"]) ?? "Not Exists";
