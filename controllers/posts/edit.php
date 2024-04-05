@@ -24,11 +24,13 @@ $db = new Database($config);
         }
 
         if (empty($errors)) {
-            $query = "INSERT INTO posts (title, category_id)
-                VALUE (:title, :category_id);";
+            $query = "UPDATE posts
+                      SET title = :title, category_id = :category_id
+                      WHERE id = :id";
             $params = [
             ":title" => $_POST["title"],
-            ":category_id" => $_POST["category_id"]
+            ":category_id" => $_POST["category_id"],
+            ":id" => $_POST["id"],
         ];  
         $db->execute($query, $params);
 
