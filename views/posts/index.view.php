@@ -35,4 +35,8 @@
 <?php } ?>
 </ul>
 
+<form action="/logout" method="POST">
+<button>Logout</button>
+</form>
+
 <?php require "views/components/footer.php" ?>

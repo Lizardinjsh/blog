@@ -31,3 +31,9 @@ ADD COLUMN category_id INT;
 ALTER TABLE posts
 ADD  FOREIGN KEY (category_id)
     REFERENCES categories(id);
+
+    CREATE TABLE users (
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	username VARCHAR(255) NOT NULL,
+	PASSWORD VARCHAR(255) NOT NULL
+);
